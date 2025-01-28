@@ -14,9 +14,9 @@ jobs:
                 shell: bash
         steps:
             - name: Checkout
-              uses: actions/Checkout@v4
+              uses: actions/checkout@v4
             - name: Terraform Plan
               run: |
-                terraform init
-                terraform validate
-                terraform plan
+                    terraform init
+                    terraform validate
+                    terraform plan
