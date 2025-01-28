@@ -11,8 +11,12 @@ jobs:
         runs-on: ubuntu-latest
         defaults:
             run:
-                shell: bash
+                shell: bash      
         steps:
+            - name: Credentials
+              run: |
+                    export AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID
+                    export AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY
             - name: Checkout
               uses: actions/checkout@v4
             - name: Terraform Plan
