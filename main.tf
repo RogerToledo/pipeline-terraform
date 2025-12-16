@@ -12,12 +12,12 @@ terraform {
   backend "s3" {
     bucket = "rogertoledo-remote-state"
     key    = "vm-pipeline-github/terraform.tfstate"
-    region = "sa-east-1"
+    region = "us-east-1"
   }
 }
 
 provider "aws" {
-  region = "sa-east-1"
+  region = "us-east-1"
 
   default_tags {
     tags = {
@@ -27,11 +27,14 @@ provider "aws" {
   }
 }
 
-data "terraform_remote_state" "vpc" {
-  backend = "s3"
-  config = {
-    bucket = "rogertoledo-remote-state"
-    key    = "aws-vpc/terraform.tfstate"
-    region = "sa-east-1"
-  }
+data "aws_vpc" "dio_vpc" {
+  id = "vpc-04d33e0786889b10f"
+}
+
+data "aws_subnet" "dio_subnet" {
+  id = "subnet-0ef86ccebbaef008e"
+}
+
+data "aws_security_group" "dio_sg" {
+  id = "sg-04f69c14b541399fb"
 }
