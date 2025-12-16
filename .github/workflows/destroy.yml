@@ -15,6 +15,10 @@ jobs:
         steps:
             - name: Checkout
               uses: actions/Checkout@v6
+            - name: Setup Terraform
+              uses: hashicorp/setup-terraform@v3
+              with:
+                terraform_version: 1.14.2   
             - name: Terraform Destroy
               run: |
                 terraform init
