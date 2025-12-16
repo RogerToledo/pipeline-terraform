@@ -8,13 +8,13 @@ env:
 jobs:
     terraform-plapplayan:
         name: Terraform Apply
-        runs-on: ubuntu-22.04
+        runs-on: ubuntu-latest
         defaults:
             run:
                 shell: bash
         steps:
             - name: Checkout
-              uses: actions/Checkout@v4
+              uses: actions/Checkout@v6
             - name: Terraform Apply
               run: |
                 terraform init
