@@ -4,6 +4,7 @@ resource "aws_key_pair" "key" {
 }
 
 resource "aws_instance" "ubuntu_server" {
+  count                       = var.ubuntu_instance_count
   ami                         = "ami-0ecb62995f68bb549"
   instance_type               = "t3.micro"
   key_name                    = aws_key_pair.key.key_name
