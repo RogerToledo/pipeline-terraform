@@ -1,6 +1,6 @@
 output "ubuntu_servers_ips" {
   description = "value of the public ip from ubunto servers"
-  value       = aws_instance.ubuntu_serve[*].public_ip
+  value       = aws_instance.ubuntu_server[*].public_ip
 }
 
 output "windows_server_ip" {
