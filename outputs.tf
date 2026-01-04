@@ -1,14 +1,9 @@
-output "Server01_ip" {
-  description = "value of the public ip from server01"
-  value       = aws_instance.Server01.public_ip
+output "ubuntu_servers_ips" {
+  description = "value of the public ip from ubunto servers"
+  value       = aws_instance.ubuntu_serve[*].public_ip
 }
 
-output "Server02_ip" {
-  description = "value of the public ip from server02"
-  value       = aws_instance.Server02.public_ip
-}
-
-output "Server03_ip" {
-  description = "value of the public ip from server03"
-  value       = aws_instance.Server03.public_ip
+output "windows_server_ip" {
+  description = "value of the public ip from server04"
+  value       = aws_instance.windows-server.public_ip
 }
