@@ -1,7 +1,13 @@
 variable "ubuntu_instance_count" {
-  description = "number of ubunto instances to be created"
+  description = "number of ubuntu instances to be created"
   type        = number
-  default     = 3
+  default     = 2
+}
+
+variable "windows_instance_count" {
+  description = "number of windows instances to be created"
+  type        = number
+  default     = 1
 }
 
 variable "aws_key_pub" {

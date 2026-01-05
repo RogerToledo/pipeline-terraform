@@ -13,13 +13,14 @@ resource "aws_instance" "ubuntu_server" {
   associate_public_ip_address = true
 
   tags = {
-    Name        = "Server-${count.index + 1} - Ubuntu"
+    Name        = "Server-${count.index} - Ubuntu"
     Environment = "Dev"
     OS          = "Ubuntu"
   }
 }
 
 resource "aws_instance" "windows_server" {
+  count                       = var.windows_instance_count
   ami                         = "ami-0b4bc1e90f30ca1ec"
   instance_type               = "t3.micro"
   key_name                    = aws_key_pair.key.key_name
@@ -28,7 +29,7 @@ resource "aws_instance" "windows_server" {
   associate_public_ip_address = true
 
   tags = {
-    Name        = "Server - Windows"
+    Name        = "Server-${count.index} - Windows"
     Environment = "Dev"
     OS          = "Windows"
   }
